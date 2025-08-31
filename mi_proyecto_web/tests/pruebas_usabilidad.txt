@@ -1,0 +1,2 @@
+Prueba 1: Usuario A - tiempo de tarea 45s - comentario: navegación clara.
+Prueba 2: Usuario B - tiempo 60s - comentario: mejorar contraste en botones.
