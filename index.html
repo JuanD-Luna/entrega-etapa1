@@ -5,60 +5,140 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Arquitectura Cliente/Servidor & Diseño Centrado en el Usuario</title>
   <meta name="description" content="Página educativa sobre arquitectura cliente/servidor, diseño centrado en el usuario e investigación en el territorio." />
-  <!-- Enlace CSS (asegúrate de que css/styles.css exista en el repo) -->
+  <!-- Estilos externos: verifica que exista css/styles.css en tu repo -->
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Pequeño fallback para evitar que se vea muy roto si por alguna razón no carga styles.css */
+    :root{--bg:#0f1724;--text:#e6eef6}
+    body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;margin:0;padding:18px}
+    .wrap{max-width:980px;margin:18px auto}
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Arquitectura Cliente/Servidor & Diseño Centrado en el Usuario</h1>
-        <p>Resumen, respuestas a preguntas orientadoras y recursos.</p>
-      </div>
+  <div class="wrap" role="document">
+    <header role="banner" aria-label="Encabezado principal">
+      <h1>Arquitectura Cliente/Servidor &amp; Diseño Centrado en el Usuario</h1>
+      <p style="color:#94a3b8;margin-top:4px">Resumen, respuestas a preguntas orientadoras y recursos. (Recurso base: Guía de aprendizaje - Etapa 1).</p>
     </header>
 
-    <nav>
+    <nav aria-label="Navegación principal" style="margin-top:14px">
       <button class="btn" onclick="scrollToSection('arquitectura')">Arquitectura</button>
-      <button class="btn" onclick="scrollToSection('dcu')">DCU</button>
-      <button class="btn" onclick="scrollToSection('investigacion')">Investigación</button>
-      <button class="btn" onclick="scrollToSection('referencias')">Referencias</button>
+      <button class="btn" onclick="scrollToSection('dcu')">Diseño centrado en el usuario</button>
+      <button class="btn" onclick="scrollToSection('investigacion')">Investigación en el territorio</button>
+      <button class="btn" onclick="scrollToSection('referencias')">Referencias (APA)</button>
     </nav>
 
-    <main>
-      <section class="card" id="arquitectura">
-        <h2>1. ¿Qué papel tiene la arquitectura Cliente/Servidor?</h2>
-        <p>La arquitectura organiza las responsabilidades entre cliente y servidor...</p>
+    <main role="main" style="margin-top:18px;display:block">
+      <!-- Arquitectura -->
+      <section class="card" id="arquitectura" aria-labelledby="h-arch">
+        <h2 id="h-arch">1. ¿Qué papel tiene la arquitectura Cliente/Servidor en la programación web dinámica?</h2>
+        <p>La arquitectura Cliente/Servidor organiza la ejecución y responsabilidad entre dos actores principales: el <strong>cliente</strong> (navegador o app) que solicita servicios y presenta la interfaz, y el <strong>servidor</strong> que procesa peticiones, accede a datos y entrega respuestas. En la programación web dinámica su papel es central porque:</p>
+        <ul>
+          <li>Permite separar <em>presentación</em> (HTML/CSS/JS) de <em>lógica de negocio</em> y <em>persistencia</em> (bases de datos), facilitando mantenimiento y escalabilidad.</li>
+          <li>Soporta la generación de contenido dinámico: el servidor construye respuestas (HTML dinámico, JSON para APIs) según la petición, usuarios y datos.</li>
+          <li>Habilita servicios y APIs REST/GraphQL que permiten interacción asíncrona (AJAX / fetch), mejorando experiencia de usuario sin recargar páginas completas.</li>
+          <li>Gestiona seguridad, autenticación y autorización de manera centralizada, reduciendo exposición de datos sensibles en el cliente.</li>
+          <li>Facilita escalamiento horizontal/vertical y balanceo de carga, críticos para aplicaciones con muchos usuarios concurrentes.</li>
+        </ul>
+        <p>Desde la perspectiva histórica y técnica, entender protocolos (HTTP/HTTPS), modelos de estado (stateless, sesiones) y cómo el servidor administra recursos y concurrencia es clave para diseñar aplicaciones web robustas y eficientes.</p>
+
+        <div class="diagram" aria-hidden="true" style="display:flex;gap:12px;align-items:center;justify-content:center;margin-top:12px">
+          <div class="node">Cliente<br><small>HTML/CSS/JS</small></div>
+          <div class="node">Internet / HTTP</div>
+          <div class="node">Servidor<br><small>App + DB</small></div>
+        </div>
+
+        <p style="font-size:0.9rem;color:#94a3b8;margin-top:10px">Basado en la Guía de aprendizaje - Etapa 1. :contentReference[oaicite:0]{index=0}</p>
       </section>
 
-      <section class="card" id="dcu">
-        <h2>2. Diseño centrado en el usuario</h2>
-        <p>El DCU prioriza las necesidades y contexto del usuario...</p>
+      <!-- Diseño centrado en el usuario -->
+      <section class="card" id="dcu" aria-labelledby="h-dcu">
+        <h2 id="h-dcu">2. Diseño de sistemas interactivos centrados en el usuario (DCU)</h2>
+        <p>El DCU prioriza la comprensión de las necesidades, tareas, contexto y expectativas de los usuarios durante todo el proceso de diseño. Sus aportes principales son:</p>
+        <ul>
+          <li>La interfaz se diseña para apoyar las tareas reales del usuario, reduciendo carga cognitiva y errores.</li>
+          <li>Se emplean técnicas iterativas: prototipos, pruebas de usabilidad, y refinamiento continuo según la retroalimentación.</li>
+          <li>Considera factores emocionales y sensoriales (percepción, intuición), no solo funcionales.</li>
+        </ul>
+        <p>Aplicado a la web, DCU influye directamente en la estructura de páginas, navegación, prioridad de contenido, y en la implementación de CSS y comportamiento con JavaScript para garantizar accesibilidad, claridad y fluidez.</p>
       </section>
 
-      <section class="card" id="investigacion">
-        <h2>3. Investigación en el territorio</h2>
-        <p>La investigación en el territorio reduce incertidumbre y genera requisitos...</p>
+      <!-- Investigación -->
+      <section class="card" id="investigacion" aria-labelledby="h-inv">
+        <h2 id="h-inv">3. ¿Qué importancia tiene la investigación en el territorio para el análisis de requisitos y especificaciones técnicas?</h2>
+        <p>La investigación en el territorio (investigación de campo) reduce incertidumbre y permite al equipo de desarrollo recoger datos concretos sobre:</p>
+        <ul>
+          <li><strong>Contexto tecnológico:</strong> ancho de banda, tipos de dispositivos, navegadores más usados y disponibilidad de conexión.</li>
+          <li><strong>Contexto humano:</strong> hábitos, nivel de alfabetización digital, idiomas, y expectativas culturales que afectan el diseño de la UI y contenidos.</li>
+          <li><strong>Restricciones físicas y de accesibilidad:</strong> condiciones de luz, uso en movilidad, y necesidades especiales de accesibilidad (WCAG).</li>
+          <li><strong>Requisitos no funcionales:</strong> rendimiento esperado, tolerancia a fallos, requisitos de privacidad y normativos locales.</li>
+        </ul>
+        <p>Metodologías recomendadas: entrevistas semiestructuradas, encuestas cuantitativas, observación contextual, pruebas de usabilidad locales y co-creación con usuarios clave. Estos insumos deben traducirse a historias de usuario, criterios de aceptación y especificaciones técnicas concretas que guíen la implementación.</p>
       </section>
 
-      <section class="card" id="metodos">
-        <h2>Ejemplo interactivo</h2>
-        <p>Botón que simula una carga asíncrona (demo fetch):</p>
+      <!-- Métodos prácticos -->
+      <section class="card" id="metodos" aria-labelledby="h-met">
+        <h2 id="h-met">Métodos prácticos para enriquecer el análisis de requisitos</h2>
+        <div style="display:grid;gap:12px">
+          <div>
+            <h3>Recolectar</h3>
+            <ul>
+              <li>Entrevistas con stakeholders y usuarios finales</li>
+              <li>Encuestas cortas y observación in-situ</li>
+              <li>Registro de tareas reales (shadowing)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Analizar</h3>
+            <ul>
+              <li>Mapas de empatía y personas</li>
+              <li>Customer journey / escenarios</li>
+              <li>Priorizar requisitos con MoSCoW</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Validar</h3>
+            <ul>
+              <li>Prototipos (baja a alta fidelidad) y pruebas de usabilidad</li>
+              <li>Pruebas de rendimiento en condiciones reales</li>
+              <li>Revisión de accesibilidad (listar problemas y soluciones)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ejemplo interactivo -->
+      <section class="card" aria-labelledby="h-demo">
+        <h2 id="h-demo">Ejemplo interactivo</h2>
+        <p>Botón de ejemplo que simula una carga asíncrona (demo `fetch` simulado):</p>
         <button id="loadExample" class="btn">Cargar ejemplo</button>
-        <div id="exampleOutput" style="margin-top:8px"></div>
+        <div id="exampleOutput" style="margin-top:8px;color:#cfe8ef"></div>
       </section>
 
-      <section class="card" id="referencias">
-        <h2>Referencias</h2>
-        <p>Chaves (2017), Granollers (2012), Luján (2002), Terrell (2019).</p>
+      <!-- Referencias -->
+      <section class="card" id="referencias" aria-labelledby="h-ref">
+        <h2 id="h-ref">Referencias (APA 7.0)</h2>
+        <ol class="refs" style="color:#cbd5e1">
+          <li>Chaves, A. N. (2017). <em>Aprenda a diseñar algoritmos</em>. Sello Editorial UNAD. https://libros.unad.edu.co/index.php/selloeditorial/catalog/view/3/45/285</li>
+          <li>Granollers, T. (2012). <em>Diseño de sistemas interactivos centrados en el usuario</em>. Editorial UOC. (pp. 23–49). https://elibro-net.bibliotecavirtual.unad.edu.co/es/ereader/unad/56326?page=24</li>
+          <li>Luján, S. (2002). <em>Programación de aplicaciones web: historia, principios básicos y clientes web</em> (pp. 39–89). https://rua.ua.es/dspace/bitstream/10045/16995/1/sergio_lujan-programacion_de_aplicaciones_web.pdf</li>
+          <li>Terrell, B. (2019). <em>Creating Data-Driven Web Sites: An Introduction to HTML, CSS, PHP, and MySQL</em> (pp. 15–47).</li>
+          <li>Guía de aprendizaje - Etapa 1. Conceptos previos. Universidad Nacional Abierta y a Distancia (UNAD). Documento de la actividad.</li>
+        </ol>
       </section>
     </main>
 
-    <footer>
-      <p>Archivo creado como evidencia para la Etapa 1.</p>
+    <footer role="contentinfo" style="margin-top:14px;color:#94a3b8">
+      <p>Archivo creado como evidencia para la Etapa 1. Si necesita, puedo exportar este archivo como ZIP o ayudar a completar el Anexo 1 con la documentación requerida.</p>
+      <p style="font-size:0.85rem;margin-top:6px">Autor: Juan David Luna Cruz — Tecnología en Desarrollo de Software</p>
     </footer>
   </div>
 
-  <!-- Enlace JS (asegúrate de que js/main.js exista en el repo) -->
+  <noscript>
+    <div style="background:#111;color:#fff;padding:8px;text-align:center">Para una experiencia completa habilita JavaScript en tu navegador.</div>
+  </noscript>
+
+  <!-- Script externo: verifica que js/main.js exista en tu repo -->
   <script src="js/main.js"></script>
 </body>
 </html>
