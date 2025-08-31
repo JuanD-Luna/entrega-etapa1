@@ -1,3 +1,0 @@
-# Anexo1 - Conceptos Previos
-
-Contenido del anexo...
