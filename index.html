@@ -1,3 +1,64 @@
-<!doctype html><html><head>
-  <link rel="stylesheet" href="css/styles.css"><meta charset='utf-8'><title>Pagina Cliente/Servidor</title></head><body><h1>Pagina Cliente/Servidor</h1>  <script src="js/main.js"></script>
-</body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arquitectura Cliente/Servidor & Diseño Centrado en el Usuario</title>
+  <meta name="description" content="Página educativa sobre arquitectura cliente/servidor, diseño centrado en el usuario e investigación en el territorio." />
+  <!-- Enlace CSS (asegúrate de que css/styles.css exista en el repo) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Arquitectura Cliente/Servidor & Diseño Centrado en el Usuario</h1>
+        <p>Resumen, respuestas a preguntas orientadoras y recursos.</p>
+      </div>
+    </header>
+
+    <nav>
+      <button class="btn" onclick="scrollToSection('arquitectura')">Arquitectura</button>
+      <button class="btn" onclick="scrollToSection('dcu')">DCU</button>
+      <button class="btn" onclick="scrollToSection('investigacion')">Investigación</button>
+      <button class="btn" onclick="scrollToSection('referencias')">Referencias</button>
+    </nav>
+
+    <main>
+      <section class="card" id="arquitectura">
+        <h2>1. ¿Qué papel tiene la arquitectura Cliente/Servidor?</h2>
+        <p>La arquitectura organiza las responsabilidades entre cliente y servidor...</p>
+      </section>
+
+      <section class="card" id="dcu">
+        <h2>2. Diseño centrado en el usuario</h2>
+        <p>El DCU prioriza las necesidades y contexto del usuario...</p>
+      </section>
+
+      <section class="card" id="investigacion">
+        <h2>3. Investigación en el territorio</h2>
+        <p>La investigación en el territorio reduce incertidumbre y genera requisitos...</p>
+      </section>
+
+      <section class="card" id="metodos">
+        <h2>Ejemplo interactivo</h2>
+        <p>Botón que simula una carga asíncrona (demo fetch):</p>
+        <button id="loadExample" class="btn">Cargar ejemplo</button>
+        <div id="exampleOutput" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" id="referencias">
+        <h2>Referencias</h2>
+        <p>Chaves (2017), Granollers (2012), Luján (2002), Terrell (2019).</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Archivo creado como evidencia para la Etapa 1.</p>
+    </footer>
+  </div>
+
+  <!-- Enlace JS (asegúrate de que js/main.js exista en el repo) -->
+  <script src="js/main.js"></script>
+</body>
+</html>
